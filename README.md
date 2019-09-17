@@ -1,1 +1,50 @@
 # AutomatedClassSelector
+import selenium
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
+import time
+import pandas as pd
+import re
+
+#%%
+def test(arg):
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(executable_path='/Users/xukun/Desktop/chromedriver',options=options)
+    driver.get('https://ecampus.scu.edu/psp/csprd92/?cmd=login&languageCd=ENG&')
+
+    
+    #User-id from arg
+    driver.find_element_by_xpath('//*[@id="userid"]').clear()
+    driver.find_element_by_xpath('//*[@id="userid"]').send_keys(arg['userid'])
+    time.sleep(1)
+    
+    #password from arg
+    driver.find_element_by_xpath('//*[@id="pwd"]').clear()
+    driver.find_element_by_xpath('//*[@id="pwd"]').send_keys(arg['password'])
+    time.sleep(1)
+    
+    driver.find_element_by_xpath('//*[@class="cs-button"]').click()
+
+    driver.find_element_by_xpath('//*[@id="win0divPTNUI_LAND_REC_GROUPLET$1"]').click()
+    
+    driver.find_element_by_xpath('//*[@id="SSR_DUMMY_RECV1$sels$3$$0"]').click()
+    driver.find_element_by_xpath('//*[@id="win0divDERIVED_SSS_SCT_SSR_PB_GO"]').click()
+
+    
+
+    
+    #Enter the class number
+#     driver.refresh()
+#     driver.find_element_by_xpath('//*[@id="DERIVED_REGFRM1_CLASS_NBR"]').clear()
+#     driver.find_element_by_xpath('//*[@id="DERIVED_REGFRM1_CLASS_NBR"]').send_keys(arg['class_id'])
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//[@id="DERIVED_REGFRM1_CLASS_NBR"]/input[@name="91230"]')))
+    time.sleep(1)
+    
+    #Enter into the next step
+    driver.find_element_by_xpath('//*[@class="cs-DERIVED_REGFRM1_SSR_PB_ADDTOLIST2$9$"]').click()
+    
+    #Enter class into shopping cart
+    driver.find_element_by_xpath('//*[@class="DERIVED_CLS_DTL_NEXT_PB$280$"]').click()
+    arg = {'userid':'W1379707','password':'****','class_id':'91203'}
+    test(arg)
