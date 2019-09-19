@@ -66,5 +66,8 @@ WilliamPatersonUniversity = RateMyProfScraper(1205)
 WilliamPatersonUniversity.SearchProfessor("Cyril Ku")
 WilliamPatersonUniversity.PrintProfessorDetail("overall_rating")
 
-#driver.get("<a href="https://www.ratemyprofessors.com/ShowRatings.jsp?tid=316889">https://www.flipkart.com/laptops/</a>~buyback-guarantee-on-laptops-/pr?sid=6bo%2Cb5g&uniq")
+SantaClaraUniversity = RateMyProfScraper(882)
+SantaClaraUniversity.SearchProfessor("Navid Shaghaghi")
+SantaClaraUniversity.PrintProfessorDetail("overall_rating")
+
 
