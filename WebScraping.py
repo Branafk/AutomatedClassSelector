@@ -1,3 +1,7 @@
+from selenium import webdriver
+from bs4 import BeautifulSoup
+import pandas as pd
+
 import requests
 import json
 import math
@@ -62,6 +66,5 @@ WilliamPatersonUniversity = RateMyProfScraper(1205)
 WilliamPatersonUniversity.SearchProfessor("Cyril Ku")
 WilliamPatersonUniversity.PrintProfessorDetail("overall_rating")
 
-MassInstTech = RateMyProfScraper(580)
-MassInstTech.SearchProfessor("Robert Berwick")
-MassInstTech.PrintProfessorDetail("overall_rating")
+#driver.get("<a href="https://www.ratemyprofessors.com/ShowRatings.jsp?tid=316889">https://www.flipkart.com/laptops/</a>~buyback-guarantee-on-laptops-/pr?sid=6bo%2Cb5g&uniq")
+
